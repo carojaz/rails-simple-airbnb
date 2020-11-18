@@ -1,0 +1,20 @@
+<div class="container">
+  <h1>Flats</h1>
+  <div class="row">
+  <% @flats.each do |flat|%>
+      <div class="card col-4" style="width: 18rem;">
+      <img class="card-img-top" style="height: 15rem;" src="https://source.unsplash.com/random" alt="Card image cap" >
+        <div class="card-body">
+          <h5 class="card-title"><%= flat.name %></h5>
+          <h6 class="card-subtitle mb-2 text-muted"> <%= flat.description %> </h6>
+          <p class="card-text"> <%= flat.address %> </p>
+        </div>
+        <div class="card-body border-top">
+        <%= link_to "Visit || ", flat_path(flat)  %>
+        <%= link_to "Edit", edit_flat_path(flat) %>
+        <%= link_to "Remove", flat_path(flat), method: :delete, data: {confirm: "Sure?"}  %>
+        </div>
+      </div>
+  <% end %>
+  </div>
+</div>
