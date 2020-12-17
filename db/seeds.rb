@@ -8,11 +8,11 @@ require 'faker'
 #   Character.create(name: 'Luke', movie: movies.first)
 15.times do
 Flat.create!(
-  name: "Wonderful flat in" + Faker::Movies::StarWars.planet,
+  name: "Wonderful flat in " + Faker::Movies::StarWars.planet,
   address: Faker::Address.full_address,
   description: Faker::Movies::StarWars.wookiee_sentence,
-  price_per_night: [50..150].sample,
-  number_of_guests:[2..15].sample
+  price_per_night: rand(50..150),
+  number_of_guests:rand(2..15)
 )
 end
 puts "#{Flat.count} created"

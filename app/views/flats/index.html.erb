@@ -1,18 +1,19 @@
 <div class="container">
-  <h1>Flats</h1>
+  <h1>All our Flats (<%= Flat.count %>) </h1>
   <div class="row">
   <% @flats.each do |flat|%>
-      <div class="card col-4" style="width: 18rem;">
+      <div class="card col-3 m-1" style="width: 18rem;">
       <img class="card-img-top" style="height: 15rem;" src="https://source.unsplash.com/random" alt="Card image cap" >
         <div class="card-body">
           <h5 class="card-title"><%= flat.name %></h5>
           <h6 class="card-subtitle mb-2 text-muted"> <%= flat.description %> </h6>
           <p class="card-text"> <%= flat.address %> </p>
+          <p><i class="fas fa-user p-2"></i><%= flat.number_of_guests %><i class="fas fa-euro-sign p-2"></i><%= flat.price_per_night %></p>
         </div>
-        <div class="card-body border-top">
-        <%= link_to "Visit || ", flat_path(flat)  %>
-        <%= link_to "Edit", edit_flat_path(flat) %>
-        <%= link_to "Remove", flat_path(flat), method: :delete, data: {confirm: "Sure?"}  %>
+        <div class="border-top d-inline-flex p-3 justify-content-between">
+        <p><%= link_to "Visit", flat_path(flat)%></p>
+        <p><%= link_to "Edit", edit_flat_path(flat) %></p>
+        <p><%= link_to "Remove", flat_path(flat), method: :delete, data: {confirm: "Sure?"}  %></p>
         </div>
       </div>
   <% end %>
